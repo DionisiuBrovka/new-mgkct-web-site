@@ -94,7 +94,7 @@ class BasicPage(Page):
         ('heading', blocks.CharBlock(form_classname="title")),
         ('paragraph', blocks.RichTextBlock()),
         ('image', ImageChooserBlock()),
-    ], block_counts={})
+    ], block_counts={}, null=True, blank=True)
 
     create_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     edit_at = models.DateTimeField(auto_now=True, verbose_name="Дата изменения")
