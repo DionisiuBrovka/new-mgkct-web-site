@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags navigation_tags %}
+
 {% load static %}
 
 {% block content %}
@@ -11,7 +14,8 @@
 
 <div class="dev-block">
     <h2>Навигация по сайту</h2>
-
+    {% get_site_root as site_root %}
+    {{ site_root.get_children.live.in_menu }}
 </div>
 
 <div class="dev-block">
