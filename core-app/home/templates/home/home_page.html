@@ -1,21 +1,72 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block body_class %}template-homepage{% endblock %}
-
-{% block extra_css %}
-
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
-{% endblock extra_css %}
-
 {% block content %}
 
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-{% include 'home/welcome_page.html' %}
+<h1>{{page.title}}</h1>
+
+<div class="dev-block">
+    <h2>Шапка сайта</h2>
+</div>
+
+<div class="dev-block">
+    <h2>Навигация по сайту</h2>
+
+</div>
+
+<div class="dev-block">
+    <h2>Галерея изображений</h2>
+    {{page.gallery.all}}
+</div>
+
+<div class="dev-block">
+    <h2>Блок "Важные сообщения"</h2>
+</div>
+
+<div class="dev-block">
+    <h2>Блок "Расписание и анонсы"</h2>
+    <div class="dev-block">
+        <h2>Блок "Расписание"</h2>
+    </div>
+
+    <div class="dev-block">
+        <h2>Галерея анонсов</h2>
+        {{page.anons_gallery.all}}
+    </div> 
+</div>
+
+<div class="dev-block">
+    <h2>Блок "Новости"</h2>
+    <div class="dev-block">
+        <h3>Блок новостей колледжа</h3>
+    </div>
+    <div class="dev-block">
+        <h3>Блок новостей комитета</h3>
+    </div>
+    <div class="dev-block">
+        <h3>Блок новостей министерства</h3>
+    </div>
+</div>
+
+<div class="dev-block">
+    <h2>Галерея банеров</h2>
+    {{page.banner_gallery.all}}
+</div>
+
+<div class="dev-block">
+    <h2>Подвал сайта</h2>
+    <div class="dev-block">
+        <h3>Левая сторона</h3>
+    </div>
+    <div class="dev-block">
+        <h3>Правая сторона</h3>
+        <div class="dev-block">
+            <h4>Блок "Поиск по сайту"</h4>
+        </div>
+        <div class="dev-block">
+            <h4>Социальные ссылки</h4>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}
