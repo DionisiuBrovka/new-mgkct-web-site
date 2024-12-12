@@ -34,7 +34,13 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
+        {% include 'elements/header_element.html' %}
+
+        {% include 'elements/nav_element.html' %}
+        
         {% block content %}{% endblock %}
+        
+        {% include 'elements/footer_element.html' %}
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/www.js' %}"></script>
