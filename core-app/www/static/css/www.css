@@ -39,7 +39,7 @@ body {
     font-weight: 400;
 
     background: rgb(197, 229, 255);
-    background: linear-gradient(27deg, rgba(197, 229, 255, 1) 0%, rgba(233, 245, 255, 1) 31%, rgba(148, 207, 255, 1) 64%, rgba(197, 229, 255, 1) 100%);
+    background: repeating-linear-gradient(27deg, rgba(197, 229, 255, 1) 0%, rgba(233, 245, 255, 1) 31%, rgb(125, 184, 233) 64%, rgba(197, 229, 255, 1) 100%);
 }
 
 #body-decoration {
@@ -70,7 +70,7 @@ header {
     left: 0px;
 
     width: 100%;
-    height: 70vh;
+    height: 76vh;
     z-index: -1000;
 
     box-shadow: inset #e7f4ff 0px -20vh 15vh -2vh, #e4f3ff 0px 14vh 25vh 15vh;
@@ -80,7 +80,7 @@ header {
     position: absolute;
 
     width: 100%;
-    height: 70vh;
+    height: 76vh;
     z-index: -1010;
 
     object-fit: cover;
@@ -90,7 +90,7 @@ header {
     overflow: hidden;
 }
 
-#header-block-content .row{
+#header-block-content .row {
     align-items: center;
 }
 
@@ -98,14 +98,14 @@ header {
     display: block;
 
     width: 100%;
-    max-width: 30vh;
+    max-width: 27vh;
 
     padding: 1em;
-    margin: auto;  
+    margin: auto;
     margin-right: 0px;
 }
 
-#header-title h1{
+#header-title h1 {
     color: rgb(0, 68, 194);
     font-size: 36pt;
     line-height: 1em;
@@ -135,34 +135,34 @@ header {
 }
 
 /* ============================================================================ */
-nav {
+/* nav {
     min-height: 5vh;
     font-size: 14pt;
-}
+    margin-bottom: 1.25em;
+} */
 
-nav #nav-block .box {
-    padding: 1em;
-    border-radius: 2em;
-
+#nav-block{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    font-size: 14pt;
 }
 
-nav #nav-block .box a {
+#nav-block a {
     color: rgb(35, 41, 94);
     text-shadow: white -3px -3px 4px, rgb(153, 153, 153) 2px 2px 6px;
     text-decoration: none;
 }
 
-nav #nav-block .box a:hover {
+#nav-block a:hover {
     color: rgb(48, 61, 172);
     text-shadow: white -2px -2px 3px, rgb(190, 190, 190) 2px 2px 6px;
     text-decoration: none;
 }
 
-nav input[type=text] {
+#nav-block input[type=text] {
     border: 1px solid rgba(130, 150, 168, 0.4);
     border-radius: 8px;
     box-shadow: inset rgba(37, 60, 105, 0.2) 1px 1px 3px 0px;
@@ -175,26 +175,26 @@ nav input[type=text] {
     font-size: 13pt;
 }
 
-nav input[type=text]::placeholder {
+#nav-block input[type=text]::placeholder {
     color: rgb(173, 173, 173);
 }
 
-nav input[type=text]:focus {
+#nav-block input[type=text]:focus {
     color: rgb(58, 58, 58);
 }
 
-nav button {
+#nav-block button {
     border-radius: 12px;
     padding: 0.5em;
     margin-left: 0.5em;
     border: 1px solid rgba(208, 213, 218, 0.6);
 
-    box-shadow: 
-    rgba(255, 255, 255, 1) -3px -3px 7px 0px, 
-    rgb(110, 131, 173) 3px 3px 7px 0px;
+    box-shadow:
+        rgba(255, 255, 255, 1) -3px -3px 7px 0px,
+        rgb(110, 131, 173) 3px 3px 7px 0px;
     background-color: rgba(246, 248, 248, 0.1);
     backdrop-filter: blur(10px) saturate(130%);
-    
+
     text-decoration: none;
     color: rgb(54, 54, 54);
     font-family: 'Roboto';
@@ -202,19 +202,19 @@ nav button {
     font-size: 12pt;
 }
 
-nav button:hover {
+#nav-block button:hover {
     border: 1px solid rgba(205, 212, 219, 0.6);
     background-color: rgba(246, 248, 248, 0.6);
-    box-shadow: 
-    rgba(255, 255, 255, 1) -3px -3px 4px 1px, 
-    rgb(110, 131, 173) 3px 3px 4px 1px;
+    box-shadow:
+        rgba(255, 255, 255, 1) -3px -3px 4px 1px,
+        rgb(110, 131, 173) 3px 3px 4px 1px;
 
     transition: 200ms;
 }
 
 /* ============================================================================ */
 main {
-    min-height: 65vh;
+    min-height: 75vh;
 }
 
 .content-block {
@@ -222,30 +222,9 @@ main {
     padding-bottom: 2em;
 }
 
-#main-content-block{
-    padding: 1em;
-    border-radius: 1.5em;
-    margin-bottom: 1em;
-}
-
-#side-content-block{
-    padding: 1em;
-    border-radius: 1.5em;
-}
-
-#side-content-block a{
-    display: block;
-}
-
 /* ============================================================================ */
-footer {
-    min-height: 15vh;
-}
-
 #footer-block {
     padding: 1.25em;
-
-    min-height: 15vh;
 
     background-color: rgb(0, 68, 194);
     box-shadow: inset rgba(32, 19, 56, 0.4) 0px 17px 15px -15px, inset rgba(32, 19, 56, 0.2) 0px 17px 75px -15px;
@@ -270,23 +249,34 @@ footer a:hover {
     color: rgb(64, 138, 167);
     text-align: center;
 }
+
 /* ============================================================================ */
 .box {
     border: 1px solid rgba(187, 209, 228, 0.6);
-    box-shadow: rgba(37, 60, 105, 0.3) 0px 0px 20px 0px, inset rgba(255, 255, 255, 0.3) 6px 6px 8px 1px;
-    background-color: rgba(246, 248, 248, 0.65);
+    box-shadow: rgba(37, 60, 105, 0.3) 0px 0px 20px 0px, inset rgba(255, 255, 255, 0.45) 6px 6px 16px 0px;
+    background-color: rgba(246, 248, 248, 0.45);
     backdrop-filter: blur(5px) saturate(130%);
 }
 
+.box-hard{
+    background-color: rgba(246, 248, 248, 0.65);
+}
+
+.box-round {
+    border-radius: 2em;
+    padding: 0.75em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 1.5em;
+}
+
+.box-func{
+    height: 45vh;
+}
 /* ============================================================================ */
-.dev-block{
-    /* display: none; */
-
-    /* margin: 0.25em;
-    padding: 0.5em; */
-
+.dev-block {
     background-color: rgba(67, 105, 139, 0.11);
-    
+
     border: 1px solid black;
     border-radius: 1em;
 }

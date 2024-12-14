@@ -1,22 +1,22 @@
 {% load wagtailcore_tags wagtailimages_tags navigation_tags %}
 
-<div id="nav-block">
-    <div class="container">
-        <div class="box">
-            <h2 class="visuallyhidden">Навигация по сайту</h2>
-            {% get_site_root as site_root %}
-            <a href="{% pageurl site_root  %}"><b>Главная</b></a>
-            {% for nav_element in site_root.get_children.live.in_menu %}
-                <a href="{% pageurl nav_element  %}">{{ nav_element.title }}</a>
-            {% endfor %}
-            <div>
-                <form action="">
-                    <input type="text">
-                    <button type="submit">
-                        <i class="bi bi-search"></i> Поиск
-                    </button>
-                </form>
-            </div>
-        </div>
+
+<div id="nav-block" class="box box-hard box-round">
+    <h2 class="visuallyhidden">Навигация по сайту</h2>
+    {% get_site_root as site_root %}
+    <a href="{% pageurl site_root  %}"><b>Главная</b></a>
+    {% for nav_element in site_root.get_children.live.in_menu %}
+    <a href="{% pageurl nav_element  %}">{{ nav_element.title }}</a>
+    {% endfor %}
+    <div>
+        <form action="">
+            <input type="text" placeholder="Поиск">
+            <button type="submit">
+                <i class="bi bi-search"></i> 
+                <span class="visuallyhidden">
+                    Поиск
+                </span>
+            </button>
+        </form>
     </div>
 </div>

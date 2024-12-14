@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags wagtailimages_tags navigation_tags %}
+{% load static wagtailcore_tags wagtailimages_tags navigation_tags %}
 
-{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/basic_page.css' %}">
+{% endblock %}
 
 {% block content %}
 

@@ -1,60 +1,65 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags wagtailimages_tags navigation_tags %}
+{% load static wagtailcore_tags wagtailimages_tags navigation_tags %}
 
-{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home_page.css' %}">
+{% endblock %}
 
 {% block content %}
 
-<div class="dev-block">
-    <h2>Галерея изображений</h2>
-    {{page.gallery.all}}
-</div>
-
-<div class="dev-block">
-    <h2>Блок "Важные сообщения"</h2>
-</div>
-
-<div class="dev-block">
-    <h2>Блок "Расписание и анонсы"</h2>
-    <div class="dev-block">
-        <h2>Блок "Расписание"</h2>
-    </div>
-
-    <div class="dev-block">
-        <h2>Галерея анонсов</h2>
-        {{page.anons_gallery.all}}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% include 'home/elements/home_page/main_gallery_block.html' %}
+        </div>
     </div>
 </div>
 
-<div class="dev-block">
-    <h2>Блок "Дни рождения и центры"</h2>
-    <div class="dev-block">
-        <h2>Блок "Дни рождения"</h2>
-    </div>
-
-    <div class="dev-block">
-        <h2>Галерея центры</h2>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% include 'home/elements/home_page/important_message_block.html' %}
+        </div>
     </div>
 </div>
 
-<div class="dev-block">
-    <h2>Блок "Новости"</h2>
-    <div class="dev-block">
-        <h3>Блок новостей колледжа</h3>
-    </div>
-    <div class="dev-block">
-        <h3>Блок новостей комитета</h3>
-    </div>
-    <div class="dev-block">
-        <h3>Блок новостей министерства</h3>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% include 'home/elements/home_page/timetable_block.html' %}
+        </div>
+        <div class="col">
+            {% include 'home/elements/home_page/anons_block.html' %}
+        </div>
     </div>
 </div>
 
-<div class="dev-block">
-    <h2>Галерея банеров</h2>
-    {{page.banner_gallery.all}}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% include 'home/elements/home_page/birthday_block.html' %}
+        </div>
+        <div class="col">
+            {% include 'home/elements/home_page/centers_block.html' %}
+        </div>
+    </div>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% include 'home/elements/home_page/news_block.html' %}
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% include 'home/elements/home_page/banners_block.html' %}
+        </div>
+    </div>
+</div>
 
 {% endblock content %}
