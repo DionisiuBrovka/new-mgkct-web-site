@@ -1,4 +1,141 @@
-<div id="main-gallery-block" class="box box-round box-func">
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+<div id="main-gallery-block" class="">
     <h2 class="visuallyhidden">Блок "Галерея изображений"</h2>
-    {{page.gallery.all}}
+
+
+    <div id="my-keen-slider">
+        {% for gallery_item in page.gallery.all %}
+        <div class="fader__slide keen-slider__slide">
+            {% image gallery_item.image fill-1200x600 %}
+            <div class="slide-sub">
+                <div class="slide-sub-box">
+                    <h3>
+                        {{ gallery_item.title }}
+                    </h3>
+                    <p>
+                        {{ gallery_item.intro }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
+
+<script>
+
+    var slider = new KeenSlider("#my-keen-slider", {
+
+        loop: true,
+        defaultAnimation: {
+            duration: 3000,
+        },
+        detailsChanged: (s) => {
+            s.slides.forEach((element, idx) => {
+                element.style.opacity = s.track.details.slides[idx].portion
+            })
+        },
+        renderMode: "custom",
+    },
+        [
+            (slider) => {
+                let timeout
+                let mouseOver = false
+                function clearNextTimeout() {
+                    clearTimeout(timeout)
+                }
+                function nextTimeout() {
+                    clearTimeout(timeout)
+                    if (mouseOver) return
+                    timeout = setTimeout(() => {
+                        slider.next()
+                    }, 2000)
+                }
+                slider.on("created", () => {
+                    slider.container.addEventListener("mouseover", () => {
+                        mouseOver = true
+                        clearNextTimeout()
+                    })
+                    slider.container.addEventListener("mouseout", () => {
+                        mouseOver = false
+                        nextTimeout()
+                    })
+                    nextTimeout()
+                })
+                slider.on("dragStarted", clearNextTimeout)
+                slider.on("animationEnded", nextTimeout)
+                slider.on("updated", nextTimeout)
+            },
+        ]
+    )
+</script>
+
+<style>
+    #main-gallery-block {
+        height: 50vh;
+        margin-bottom: 3.5em;
+
+        /* НЕ ТРОГАТЬ КОСТЫЛЬ */
+        backdrop-filter: blur(5px);
+    }
+
+    #main-gallery-block .fader__slide {
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
+        top: 0;
+        opacity: 0;
+
+        border-radius: 2em;
+        box-shadow: rgba(37, 60, 105, 0.3) 0px 0px 20px 0px, inset rgba(255, 255, 255, 0.45) 6px 6px 16px 0px;
+    }
+
+    #main-gallery-block .fader__slide img {
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        border-radius: 2em;
+
+    }
+    
+    #main-gallery-block .slide-sub {
+        border: 1px solid rgba(116, 124, 129, 0.3);
+        position: absolute;
+
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+
+        
+
+        border-radius: 2em;
+        box-shadow: inset 0px -10vh 5vh -30px rgba(0, 0, 0, 0.1);
+    }
+
+    #main-gallery-block .slide-sub .slide-sub-box {
+        margin-bottom: 0.75em;
+
+        padding: 0.75em;
+        padding-left: 1.25em;
+        padding-right: 1.25em;
+
+        
+        width: 95%;
+        /* height: 6vh; */
+        
+        border-radius: 1.5em;
+        box-shadow: rgba(37, 60, 105, 0.3) 0px 0px 20px 0px, inset rgba(255, 255, 255, 0.45) 6px 6px 16px 0px;
+        background-color: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(17px) saturate(130%);
+    }
+</style>
