@@ -1,3 +1,26 @@
-<div class="dev-block">
-    <h2>Шапка сайта</h2>
+{% load static %}
+
+<div id="header-block" class="">
+    <div id="header-block-fx">
+    </div>
+
+    <video autoplay muted loop id="header-block-mov">
+        <source src="{% static 'mov/back_mov.mp4' %}" type="video/mp4">
+    </video>
+
+    <div id="header-block-content" class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="{% static 'img/MGKCT_animated_playing_once.gif' %}" id="header-logo-img">
+            </div>
+            
+            <div id="header-title" class="col-md-9">
+                <h1>
+                    <span id="header-sub-title">Учреждение образования </span><br> Минский государственный колледж цифровых технологий
+                </h1>
+
+                <p id="header-sup-title">Здесь начинается твой путь к успеху!</p>
+            </div>
+        </div>
+    </div>
 </div>
