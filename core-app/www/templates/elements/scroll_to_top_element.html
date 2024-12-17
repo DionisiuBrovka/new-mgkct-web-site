@@ -1,0 +1,17 @@
+<button id="scroll-to-top" onclick="console.log('lol')">
+    <i class="bi bi-chevron-up"></i>
+</button>
+
+<script>
+    let element = document.getElementById("scroll-to-top");
+
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            element.style.opacity = 1;
+        } else {
+            element.style.opacity = 0;
+        }
+    }
+</script>

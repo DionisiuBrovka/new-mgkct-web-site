@@ -43,10 +43,9 @@
     <div id="body-decoration"></div>
 
     <header>
-
         {% include 'elements/header_element.html' %}
     </header>
-
+    
     <nav>
         <div class="container">
             <div class="row">
@@ -56,14 +55,16 @@
             </div>
         </div>
     </nav>
-
+    
     <main>
         {% block content %}{% endblock %}
     </main>
-
+    
     <footer>
         {% include 'elements/footer_element.html' %}
     </footer>
+
+    {% include 'elements/scroll_to_top_element.html' %}
 
     {# Global javascript #}
     <script type="text/javascript" src="{% static 'js/www.js' %}"></script>
