@@ -1,0 +1,1 @@
+document.getElementById("site-commit-year").innerHTML = new Date().getFullYear();
