@@ -6,10 +6,33 @@ from wagtail.models import Page, Orderable
 from wagtail.fields import RichTextField
 from wagtail.fields import StreamField
 from wagtail.images.blocks import ImageChooserBlock
-from wagtail.admin.panels import FieldPanel, InlinePanel
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel
+from wagtail.contrib.settings.models import BaseGenericSetting, register_setting
+
 
 from modelcluster.fields import ParentalKey
 
+@register_setting
+class FooterSettings(BaseGenericSetting):
+    admin_info = models.CharField(blank=True, max_length=250, verbose_name="Администрирование сайта")
+    adress_info = models.CharField(blank=True, max_length=250, verbose_name="Адрес")
+    phone_info = models.CharField(blank=True, max_length=250, verbose_name="Телефон")
+    email_info = models.CharField(blank=True, max_length=250, verbose_name="E-mail")
+
+    panels = [
+        MultiFieldPanel(
+            [
+                FieldPanel("admin_info"),
+                FieldPanel("adress_info"),
+                FieldPanel("phone_info"),
+                FieldPanel("email_info"),
+            ],
+            "Информация в подвале сайта",
+        )
+    ]
+
+    class Meta:
+        verbose_name = 'Настройки подвала сайта'
 
 class HomePage(Page):
 

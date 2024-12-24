@@ -1,11 +1,13 @@
 <div id="footer-block">
     <div class="container">
+        {% with footer_settings=settings.home.FooterSettings %}
         <div class="row">
             <div class="col-md">
-                <p><b>Администрирование сайта:</b> Бровка Дионисий, Галицкий Максим <br>
-                    <b>Адрес:</b> 220108, Республика Беларусь, г. Минск, ул. Казинца, 91 <br>
-                    <b>Телефон:</b> <a href="tel:+375 17 374 11 62">+375 17 374 11 62</a><br>
-                    <b>E-mail:</b> <a href="mailto:mgke@minskedu.gov.by">mgke@minskedu.gov.by</a>
+                <p>
+                    <b>Администрирование сайта:</b> {{ footer_settings.admin_info }} <br>
+                    <b>Адрес:</b> {{ footer_settings.adress_info }} <br>
+                    <b>Телефон:</b> <a href="tel:{{ footer_settings.phone_info }}">{{footer_settings.phone_info}}</a><br>
+                    <b>E-mail:</b> <a href="mailto:{{ footer_settings.email_info }}">{{ footer_settings.email_info}}</a>
                 </p>
             </div>
             <div class="col-md">
@@ -15,8 +17,11 @@
         </div>
         <div class="row">
             <div class="col">
-                <p id="footer-down">©УО "Минский государственный колледж цифровых технологий", <span id="site-commit-year"></span></p>
+                <p id="footer-down">©УО "Минский государственный колледж цифровых технологий", 
+                    <span id="site-commit-year"></span>
+                </p>
             </div>
         </div>
+        {% endwith %}
     </div>
 </div>
