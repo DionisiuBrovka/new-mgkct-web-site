@@ -9,6 +9,7 @@
         <div class="fader__slide keen-slider__slide">
             {% image gallery_item.image fill-1200x600 %}
             <div class="slide-sub">
+                {% if gallery_item.title|length > 0 %}
                 <div class="slide-sub-box">
                     <h3>
                         {{ gallery_item.title }}
@@ -17,6 +18,7 @@
                         {{ gallery_item.intro }}
                     </p>
                 </div>
+                {% endif %}
             </div>
         </div>
         {% endfor %}
@@ -40,32 +42,34 @@
     },
         [
             (slider) => {
-                let timeout
-                let mouseOver = false
-                function clearNextTimeout() {
-                    clearTimeout(timeout)
-                }
-                function nextTimeout() {
-                    clearTimeout(timeout)
-                    if (mouseOver) return
-                    timeout = setTimeout(() => {
-                        slider.next()
-                    }, 2000)
-                }
-                slider.on("created", () => {
-                    slider.container.addEventListener("mouseover", () => {
-                        mouseOver = true
-                        clearNextTimeout()
-                    })
-                    slider.container.addEventListener("mouseout", () => {
-                        mouseOver = false
+                if (slider.slides.length > 1) {
+                    let timeout
+                    let mouseOver = false
+                    function clearNextTimeout() {
+                        clearTimeout(timeout)
+                    }
+                    function nextTimeout() {
+                        clearTimeout(timeout)
+                        if (mouseOver) return
+                        timeout = setTimeout(() => {
+                            slider.next()
+                        }, 2000)
+                    }
+                    slider.on("created", () => {
+                        slider.container.addEventListener("mouseover", () => {
+                            mouseOver = true
+                            clearNextTimeout()
+                        })
+                        slider.container.addEventListener("mouseout", () => {
+                            mouseOver = false
+                            nextTimeout()
+                        })
                         nextTimeout()
                     })
-                    nextTimeout()
-                })
-                slider.on("dragStarted", clearNextTimeout)
-                slider.on("animationEnded", nextTimeout)
-                slider.on("updated", nextTimeout)
+                    slider.on("dragStarted", clearNextTimeout)
+                    slider.on("animationEnded", nextTimeout)
+                    slider.on("updated", nextTimeout)
+                }
             },
         ]
     )
