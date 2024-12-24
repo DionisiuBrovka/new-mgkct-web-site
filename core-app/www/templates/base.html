@@ -40,6 +40,8 @@
 <body class="{% block body_class %}{% endblock %}">
     {% wagtailuserbar %}
 
+    <div id="top"></div>
+
     <div id="body-decoration"></div>
 
     <header>
@@ -69,6 +71,7 @@
     {# Global javascript #}
     <script type="text/javascript" src="{% static 'js/www.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/site_commit_year_el_script.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/smooth_scroll.js' %}"></script>
 
     {% block extra_js %}
     {# Override this in templates to add extra javascript #}

@@ -254,14 +254,16 @@ footer a:hover {
 #scroll-to-top{
     opacity: 0;
 
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     position: fixed;
-    bottom: 5em;
-    right: 5em;
+    bottom: 4.5em;
+    right: 4.5em;
 
-    height: 5em;
-    width: 5em;
+    height: 4em;
+    width: 4em;
 
     border: none;
     border-radius: 1000px;
