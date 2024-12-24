@@ -135,11 +135,11 @@ header {
 }
 
 /* ============================================================================ */
-/* nav {
-    min-height: 5vh;
-    font-size: 14pt;
-    margin-bottom: 1.25em;
-} */
+nav {
+    position: sticky;
+    top: 0; 
+    z-index: 100;
+}
 
 #nav-block{
     display: flex;
@@ -148,6 +148,11 @@ header {
     justify-content: space-between;
 
     font-size: 14pt;
+    margin: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+
+    box-shadow: rgba(37, 60, 105, 0.5) 0px 5 px 20px 0px, inset rgba(255, 255, 255, 0.45) 6px 6px 16px 0px;
 }
 
 #nav-block a {
@@ -307,7 +312,11 @@ hr {
 }
 
 .box-hard{
-    background-color: rgba(246, 248, 248, 0.65);
+    background-color: rgba(246, 248, 248, 0.7);
+}
+
+.box-hard-hard{
+    background-color: rgba(246, 248, 248, 0.9);
 }
 
 .box-round {
