@@ -9,7 +9,7 @@
         <div class="fader__slide keen-slider__slide">
             {% image gallery_item.image fill-1200x600 %}
             <div class="slide-sub">
-                {% if gallery_item.title|length > 0 %}
+                {% if gallery_item.title %}
                 <div class="slide-sub-box">
                     <h3>
                         {{ gallery_item.title }}
